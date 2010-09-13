@@ -58,14 +58,9 @@ class Category extends RegWiz
 {
 	function __construct($catName=NULL)
 	{
-		/* if catagory parameter is passed it will try to select the category */
+		
 		parent::__construct();
-		$this->table="Category";
-		if ($catname)
-		{
-			$this->select($catname);
-		}
-
+		
 	}
 	public function getEvents($catId)
 	{
@@ -98,14 +93,9 @@ class Event extends RegWiz
 {
 	function __construct($catName=NULL)
 	{
-		/* if catagory parameter is passed it will try to select the category */
+	
 		parent::__construct();
-		$this->table="Category";
-		if ($catname)
-		{
-			$this->select($catname);
-		}
-
+		
 	}
 	
 	public function addToEvent($del,$eventId)
