@@ -2,7 +2,11 @@
 <?php
 include_once 'class.inc.php';
 
+echo "Delegate Registration</a>";
+echo "<br/>";
 echo "<a href='register.php'>Delegate Registration</a>";
+echo "<br/>";
+echo "<a href='outregister.php'>Outstation Registration</a>";
 echo "<br/>";
 echo "Team Registration";
 echo "<br/>";

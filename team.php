@@ -35,6 +35,10 @@ if(isset($_POST['submit']))
 			echo "<tr><td>".$r."</td></tr>";
 		}
 	}
+	else if($type=="ae")
+	{
+		echo $t->addToTeam($_POST['delNo'],$_POST['teamNo']);
+	}
 			
 }
 else
@@ -50,6 +54,7 @@ if($type=="ce")
 else if($type=="ae")
 {
 	echo "<form method='post'>Delegate Card No. <input type='text' name='delNo'><br/><br/>
+	Team No. <input type='text' name='teamNo'><br/><br/>
 <input type='submit' name='submit' value='Submit'>
 <input type='reset' name='reset' value='Reset'></form>";
 }

@@ -119,7 +119,12 @@ class Delegate extends RegWiz
 	
 	public function getInfo($reg)
 	{
-		$this->query("SELECT * FROM student WHERE registration_number={reg}");
+		$res=$this->query("SELECT * FROM Student WHERE RegdNo={$reg}");
+		if($res)
+		return mysql_fetch_assoc($res);
+		else
+		return 0;
+		
 	}
 	
 	public function add($reg,$name,$contact,$email)
@@ -158,7 +163,9 @@ class Team extends RegWiz
 		{
 			$row=mysql_fetch_assoc($res);
 			$teamMembers=explode(',',$row['DelNo']);
-			$teamMembers[]=$del;
+			//var_dump($del);
+			$teamMembers[]="$del";
+			//var_dump($teamMembers);
 			$teamMembers=implode(',',$teamMembers);
 			$res2=$this->query("UPDATE Team SET DelNo='{$teamMembers}' WHERE TID=$teamNo");
 			if($res2)

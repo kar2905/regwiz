@@ -7,6 +7,7 @@
 <body>
 <div id="header">
 <?php include_once 'header.php'; ?>
+<h3>Out Station Registration</h3>
 </div>
 <div id="sidebaar">
 <?php include_once 'sidebar.php'; ?>
@@ -14,19 +15,37 @@
 <div id="content">
 <?php
 include_once 'class.inc.php';
+$d=new Delegate();
+if(isset($_POST['submit']))
+{
 
+	echo "Your Delegate Card No. is : TT".$d->add($_POST['regno'],$_POST['name'],$_POST['contact'],$_POST['email']);
+}
+else
+{
+	
 ?>
 
-<form method="get" action="register2.php">
-Registration No.
+<form method="post">
+Name: 
+<input type="text" name="name">
+<br/><br/>Registration No.
 <input type="text" name="regno">
+<br/><br/>Email
 
+<input type="text" name="email">
+<br/><br/>Contact No.
+<input type="text" name="contact">
+<br/><br/>College
+<input type="text" name="college">
 <br/><br/>
 <input type="submit" name="submit" value="Submit">
 <input type="reset" name="reset" value="Reset">
 
 </form>
-
+<?php
+}
+?>
 
 </div>
 <div id="footer"><?php include_once 'footer.php'; ?></div>
