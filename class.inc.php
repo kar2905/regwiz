@@ -85,8 +85,14 @@ class Category extends RegWiz
 		}
 		return $ret;
 	}
-		
-	
+
+	public function getCatSummary(){
+		$res = $this->query("SELECT Category.Name Cname, count( DelNo ) TCount FROM Category,Event, Event_Del WHERE Event.EID = Event_Del.EID and Category.CID = Event.CID group by Cname");
+		while($row = mysql_fetch_assoc($res)){
+			$ret[] = $row;	
+		}
+		return $ret;
+	}
 
 }
 class Event extends RegWiz
@@ -106,8 +112,16 @@ class Event extends RegWiz
 		else
 		return "Error";
 	}
-	
 
+	public function getEvents()
+	{
+		$res=$this->query("SELECT Event.Name Ename, count( DelNo ) TCount FROM Event, Event_Del WHERE Event.EID = Event_Del.EID group by Ename");
+		while($row=mysql_fetch_assoc($res))
+		{
+			$ret[]=$row;
+		}
+		return $ret;
+	}
 }
 
 class Delegate extends RegWiz
@@ -144,6 +158,16 @@ class Delegate extends RegWiz
 		return $row;
 		else
 		return "error";
+	}
+
+	public function part($del){
+		$res=$this->query("SELECT Event.Name EName FROM Event,Event_Del where Event.EID=Event_Del.EID and DelNo = $del");
+		$row = mysql_fetch_assoc($res);
+		while($row=mysql_fetch_assoc($res))
+		{
+			$ret[]=$row;
+		}
+		return $ret;
 	}
 		
 }

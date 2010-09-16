@@ -3,7 +3,17 @@
 <title>RegWiz- Techtatva 10 Registrations </title>
 <link rel="stylesheet" href="main.css" type="text/css" />
 
+
 </head>
+
+<script src="js/jquery.js"></script>
+<script type="text/javascript" src="js/validate.js"></script>
+<script type="text/javascript" language="JavaScript">
+$(document).ready(function(){
+		$("#regForm").validate();
+});
+		
+</script>
 <body>
 <div id="header">
 <?php include_once 'header.php'; ?>
@@ -16,15 +26,13 @@
 include_once 'class.inc.php';
 
 ?>
-
-<form method="get" action="register2.php">
-Registration No.
-<input type="text" name="regno">
-
-<br/><br/>
-<input type="submit" name="submit" value="Submit">
-<input type="reset" name="reset" value="Reset">
-
+<fieldset>
+<legend>Delegate Card Registeration</legend>
+<form name="regForm" id="regForm" method="get" action="register2.php">
+<table>
+<tr><td>Registration No.</td><td><input type="text" name="regno" class="required number" minlength="9" maxlength="9"></td>
+<tr><td><input type="submit" name="submit" value="Submit"></td><td><input type="reset" name="reset" value="Reset"></td></tr>
+<table>
 </form>
 
 

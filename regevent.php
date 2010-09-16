@@ -4,6 +4,16 @@
 <link rel="stylesheet" href="main.css" type="text/css" />
 
 </head>
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="http://dev.jquery.com/view/trunk/plugins/validate/jquery.validate.js"></script>
+<script type="text/javascript" language="JavaScript">
+$(document).ready(function(){
+		$("#regForm").validate();
+});
+		
+</script>
+
 <body>
 <div id="header">
 <?php include_once 'header.php'; ?>
@@ -26,7 +36,9 @@ if(isset($_POST['submit']))
 else
 {
 	?>
-<form method="post">
+<fieldset>
+<legend>Register for Event</legend>
+<form method="post" name="regForm" id="regForm">
 <?php
 include_once 'sidebar.php';
 $cid=$_GET['cid'];
@@ -41,11 +53,12 @@ foreach($events as $e)
 ?>
 <br/><br/>
 Delegate Card No or Team Id : 
-<input type="text" name="id">
+<input type="text" name="id" class="required number">
 <br/><br/>
 <input type='submit' name='submit' value='Submit'>
 <input type='reset' name='reset' value='Reset'>
 </form>
+</fieldset>
 <?php
 }
 ?>

@@ -4,6 +4,17 @@
 <link rel="stylesheet" href="main.css" type="text/css" />
 
 </head>
+
+<script src="js/jquery.js"></script>
+<script type="text/javascript" src="js/validate.js"></script>
+
+<script type="text/javascript" language="JavaScript">
+$(document).ready(function(){
+		$("#regForm").validate();
+});
+		
+</script>
+
 <body>
 <div id="header">
 <?php include_once 'header.php'; ?>
@@ -33,7 +44,7 @@ else
 	
 ?>
 
-<form method="post">
+<form method="post" name="regForm" id="regForm">
 Name: 
 <input type="text" name="name" value="<?= $res['Name'] ?>">
 <br/><br/>Registration No.

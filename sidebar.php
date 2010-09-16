@@ -21,6 +21,12 @@ $c=new Category();
 $cats=$c->getCategories();
 foreach($cats as $cat)
 echo "<a href='regevent.php?cid=".$cat['CID']."'>".$cat['Name']."</a><br/>";
+echo "View </br>";
+
+echo "<a href='view.php?view=e'>View Events Summary</a><br />";
+echo "<a href='view.php?view=c'>View Category Summary</a><br />";
+echo "<a href='team.php?type=se'>View Team Details</a><br />";
+echo "<a href='view.php?view=d'>View Delegate Details</a><br />";
 
 ?>
 
